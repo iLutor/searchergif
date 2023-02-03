@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searchgif</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="giphy.ico">
+</head>
+
+<body>
+
+    <div class="searcher-bar"> 
+        <label for="searcher" class="searcher-bar__label">Escribe algo que quieras buscar</label>
+        <input class="searcher-bar__input" type="search" name="searcher" id="searcher" onkeydown="onChangeSearcher()"></input>
+    </div>
+
+    <div class="container">
+        <div id="searcher-images-container" class="searcher-images-container m-20">
+            <img class="searcher-images-notfound" src="https://media3.giphy.com/media/3o6ZsSW631Rw0zF9io/giphy.gif?cid=00bb0bf7ng9tnpm2as3262c8oojyj88wa0242ie3wj2ze5he&rid=giphy.gif&ct=g" alt="not found placeholder">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
 document.cookie = "SameSite=None;Secure=True;domain=.giphy.com/";
 
-console.log(document.cookie);
 
 const onChangeSearcher = async () => {
     const searcher = document.getElementById('searcher');
@@ -18,11 +17,15 @@ const onChangeSearcher = async () => {
 
 
 const populateImages = (searchedGifs) => {
-    if (searchedGifs) {
+    console.log(searchedGifs);
+    if (searchedGifs && searchedGifs?.data.length > 0) {
         searchedGifs.data.forEach(element => {
             const imageUrl = getImageUrl(element);
             createNewImageGenerated(imageUrl);
         });
+    }
+    else {
+        createNotFoundImage();
     }
 }
 
@@ -50,6 +53,15 @@ const detectingScroll = (currentValue) => {
 const getImageUrl = (item) => {
     let url = item.images.original.url;
     return url;
+}
+
+const createNotFoundImage = () => {
+    const searcherImage = document.getElementById('searcher-images-container');
+    let img = document.createElement("img");
+    img.className = 'searcher-images-notfound';
+    img.alt = 'not found placeholder';
+    img.src = 'https://media4.giphy.com/media/UqZ4imFIoljlr5O2sM/giphy.gif?cid=00bb0bf7ncdpj1wifat235t9io725511irw86niz6bvoipo8&rid=giphy.gif&ct=g';
+    searcherImage.appendChild(img);
 }
 
 const createNewImageGenerated = (imageUrl) => {

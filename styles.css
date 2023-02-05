@@ -14,7 +14,7 @@ body {
 .searcher-images-notfound {
   justify-content: center;
   display: flex;
-  width: 100%
+  width: 100%;
 }
 
 .searcher-bar__input {
@@ -41,8 +41,7 @@ body {
 }
 
 .searcher-images-container .generated {
-  max-width: 200px;
-  min-width: 200px;
+  width: 100%;
   display: flex;
   align-self: center;
   padding: 20px;

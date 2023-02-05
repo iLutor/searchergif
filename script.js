@@ -8,9 +8,14 @@ const onChangeSearcher = async () => {
     if (isMinReached) {
         await getGifsSearch(currentValue).then((response) => {
             const searchedGifs = response;
-            clearContent();
-            populateImages(searchedGifs);
-            detectingScroll(currentValue);
+            if (searchedGifs?.data.length > 0) {
+                clearContent();
+                populateImages(searchedGifs);
+                detectingScroll(currentValue);
+            } else {
+                clearContent();
+                createNotFoundImage();
+            }
         });
     }
 }
@@ -23,9 +28,6 @@ const populateImages = (searchedGifs) => {
             const imageUrl = getImageUrl(element);
             createNewImageGenerated(imageUrl);
         });
-    }
-    else {
-        createNotFoundImage();
     }
 }
 
@@ -60,7 +62,7 @@ const createNotFoundImage = () => {
     let img = document.createElement("img");
     img.className = 'searcher-images-notfound';
     img.alt = 'not found placeholder';
-    img.src = 'https://media4.giphy.com/media/UqZ4imFIoljlr5O2sM/giphy.gif?cid=00bb0bf7ncdpj1wifat235t9io725511irw86niz6bvoipo8&rid=giphy.gif&ct=g';
+    img.src = 'https://media2.giphy.com/media/0RAvDxfdksWy39YG4T/giphy.gif?cid=00bb0bf7z39557zcsfmx07esyylc6yed8lllq5a7tcr4anqj&rid=giphy.gif&ct=g';
     searcherImage.appendChild(img);
 }
 
